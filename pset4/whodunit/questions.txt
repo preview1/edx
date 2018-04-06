@@ -1,0 +1,32 @@
+1.  This is a header that defines a set of integral type aliases with specific width requirements, along with macros specifying their limits and macro functions to create values of these types. Using well-defined types makes the code far easier and safer to port. It also can help to increase efficiancy of some programs by setting the variables of exact size that is needed, to save memmory and increase speed by working with smaller variables than some systems can assign. For example, while long long is at least 64 bits, it might be 128-bit on some machines.
+
+2.  It specifies the size/lenght of the new defined data types - WORD,BYTE, ect.
+
+3.  BYTE - uint8_t - 8 bits - 1 byte
+    DWORD - uint32_t - 32 bits - 4 bytes
+    LONG - int32_t - 32 bits - 4 bytes
+    WORD - uint16_t - 16 bits - 2 bytes
+    
+4.  First two bytes of any BMP file identifies the file type. 
+    Values: 0x42 0x4D in hexadecimal, same as BM in ASCII.
+    
+5.  bfSize - The size of the BMP file in bytes
+    biSize - Header size - must be at least 40
+    
+6.  If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower-left corner. If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+    If biHeight is negative, indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS. 
+    Top-down DIBs cannot be compressed.
+    
+7.  The biBitCount member of the BITMAPINFOHEADER structure determines the number of bits that define each pixel and the maximum number of colors in the bitmap.
+
+8.  fopen might return NULL in line 24 if a program does not have rights/can't to open the file in read mode.
+    fopen might return NULL in line 32 if a program does not have rights/can't to open the file in write mode.
+
+9.  nmemb − This is the number of elements to read. The size of elements is defined, so it only reads that one element.
+
+10. padding =  (4 - (3 * 3) % 4) % 4;
+    Padding should be assign with value of 3 if bi.biWidth is 3
+
+11. Fseek sets the file position of the stream by the given offset. Changes the position in file by the given value
+
+12. SEEK_CUR is the current position, which is needed to define, when you use fseek if you whant to change position by given offset. The start position (current position in file) from where to add or subract the given offset.

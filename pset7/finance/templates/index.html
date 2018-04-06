@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Finance
+{% endblock %}
+
+{% block main %}
+<h3>{{title|safe}}</h3>
+<form action="{{ url_for('index') }}" method="post">
+ <table class="table table-striped">
+    <col width="10%">
+    <col width="20%">
+    <col width="10%">
+    <col width="10%">
+    <col width="40%">
+    <col width="10%">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+                <th>BUY/SELL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            </tr>
+                {% for row in portfoliorows %}
+                <tr>
+                <td>{{ row.symbol }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.shares }}</td>
+                <td>{{ "${:,.2f}".format(row.price) }}</td>
+                <td>{{ "${:,.2f}".format(row.total) }}</td>
+                <td><fieldset>
+                    <div class="form-control-2">
+                    <input autocomplete="off" autofocus class="form-control-2" name={{ row.symbol }} value="0" type="number"/>
+                    </div></td>
+                </tr>
+                {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{cash}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <th>{{total}}</th>
+                <td></td>
+            <tr>
+                <td colspan="5"></td>
+                <th><button class="btn btn-default" type="submit">Apply</button></th>
+            </tr>
+
+        </tfoot>
+        <tbody>
+        </tbody>
+    </table>
+</form>
+{% endblock %}

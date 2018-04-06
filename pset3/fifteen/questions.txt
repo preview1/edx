@@ -1,0 +1,4 @@
+0. Board must be between 3 x 3 and 9 x 9, inclusive;
+1. The game's board is represented with 2 dimensional array;
+2. To great the player the funcion - void greet(void) is called;
+3. Functions that needs to be implamented are: void init(void), void draw(void), bool move(int tile),bool won(void);

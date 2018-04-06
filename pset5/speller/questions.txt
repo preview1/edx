@@ -1,0 +1,29 @@
+0.  Pneumonoultramicroscopicsilicovolcanoconiosis is an English word that refers to a disease. It is the longest word in the English language published in a dictionary
+
+1.  getrusage() returns resource usage measures for who.        
+    RUSAGE_SELF - Return resource usage statistics for the calling process, which is the sum of resources used by all threads in the process. Calculates total amount of time spent executing.
+
+2.  There are 16 members in a variable of type struct rusage
+
+3.  Passing before and after by reference instead of by value to avoid making an unnecessary copy, thus improving performance.
+
+4.  Main functions for loop:
+
+    Reads a character from a text file, continues until it reads end of file character and increases by reading next character;
+        IF - its a letter or apostrophe, yet apostrophes must be not the first symbol
+             writes a character to the index'th position of a word and increases index by 1.
+             
+            IF index becomes higher than longest posssible word, skips trough the next letters until they end, set index to 0 - start of new word  
+            
+        ELSE IF its a digit, skip trough the digits until they end, set index to 0 - start of new word       
+        ELSE IF its not a letter or apostrophe and not a number, it must be end of the word, add a string terminator at the end of it \0
+                and increase a word count by one.
+    Calculate the time spend on one word's check while doing it, add that time to total time_check time
+    IF check returns false, prints that word out and adds one to the misspelled counter
+    
+5.  Using fscanf %s, with a text files of unknown stucture and content might lead to a buffer overflow. Also it reads a whole string including
+    dots, comma, ect. at the end of a word, which is not needed in this program. Also we need to check every character to check if its correct - no numbers
+    or other symbols, so reading a whole string does not help.
+ 
+6.  In load and check, values are passed by reference which might help to increase performance, so to make sure that the values will not be changed
+    we use const. Using const like this might also help the compiler to increase programs performance too.
