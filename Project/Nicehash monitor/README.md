@@ -28,10 +28,6 @@ Known bugs:
 the same(eg. Machine1), only one will be displayed. NH API do not give data that would let server to distinguish between those two
 for history keeping, while we need to know which one is which if we track the history
 
-*For some reason after a while, this application works slower and slower, first rounds takes 3-6 secs, starts overloading after 20 minutes and bumps up to 300+ secs over 24hrs.
-Memmory size do not increase, all CPU gets used up, maybe it's an Cloud 9 IDE trying to save a working power, or some kind of cpu leak,
-didn't found solutions for that at the momment.
-
 Future improvements:
 
 *IF a worker is lost for a certain amount of time, send an email notification.
